@@ -14,8 +14,8 @@
     "@mintbase-js/react": "0.4.1-mintbase-wallet-02f6a84.0",
     "@mintbase-js/storage": "0.4.1-mintbase-wallet-02f6a84.0",
     "@mintbase-js/wallet": "0.4.1-mintbase-wallet-02f6a84.0",
-    "@near-wallet-selector/modal-ui": "^8.2.1",
-    "@tanstack/react-query": "^4.35.3",
+    "@near-wallet-selector/modal-ui": "^8.7.0",
+    "@tanstack/react-query": "^4.36.1",
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -24,7 +24,7 @@
     "dotenv": "^16.3.1",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
-    "graphql": "^16.7.1",
+    "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
     "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.21",
@@ -32,13 +32,14 @@
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-inlinesvg": "^4.0.4",
-    "react-webcam": "^7.1.1",
+    "react-inlinesvg": "^4.1.0",
+    "react-webcam": "^7.2.0",
+    "replicate": "^0.20.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6",
     "usehooks-ts": "^2.9.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.197"
+    "@types/lodash": "^4.14.200"
   }
 }

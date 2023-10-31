@@ -1,3 +1,6 @@
+
+
+
 .nws-modal-wrapper .nws-modal {
   height: auto !important;
 }
@@ -40,23 +43,25 @@
   display: none;
 }
 
+
+
 :root {
-  --primary: #F3F4F8;
-  --secondary: #000;
-  --mainBg: #FFFFFF;
-  --gradOne: #4472ad;
-  --gradTwo: #009dea;
-  --cardOne: #E8EAF0;
-  --cardTwo: #049BE8;
-  --linkColor: #4f58a3;
-  --icon: #4B9CE3;
-  --camera: #FFFFFF;
-  --modalText: #000000;
-  --leaderboardText: #000000;
-  --headerText: #000000;
-  --mainText: #000000;
-  --freeUseText: #0A7D6C;
-  --bgFreeUse: #0A7D6C1A;
-  --primaryBtnText: #FFFFFF;
-  --secondaryBtnText: #000000;
-}
+          --primary: #2E3A45;
+          --secondary: #4B5B6E;
+          --mainBg: #1C1E26;
+          --gradOne: #506680;
+          --gradTwo: #3C475E;
+          --cardOne: #323C4F;
+          --cardTwo: #2B3038;
+          --linkColor: #507CBE;
+          --icon: #637589;
+          --camera: #2E3A45;
+          --modalText: #FFFFFF;
+          --leaderboardText: #B0BAC9;
+          --headerText: #B0BAC9;
+          --mainText: #FFFFFF;
+          --freeUseText: #78A1BB;
+          --bgFreeUse: #78A1BB1A;
+          --primaryBtnText: #FFFFFF;
+          --secondaryBtnText: #FFFFFF;
+        }

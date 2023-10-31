@@ -1,12 +1,13 @@
-import React, { useContext, useState, createContext } from "react";
-import { useRouter } from "next/navigation";
 import { useWallet } from "@mintbase-js/react";
+import { Heebo } from "next/font/google";
+import { useRouter } from "next/navigation";
+import React, { createContext, useContext, useState } from "react";
+import "../style/global.css";
+import { fetchImageAndConvertToBase64, runPrediction } from "@/utils/lib";
+import { convertBase64ToFile } from "@/utils/base64ToFile";
+import { generateRandomId } from "@/utils/generateRandomId";
 import { uploadReference } from "@mintbase-js/storage";
 import { constants } from "@/constants";
-import { Heebo } from "next/font/google";
-import "../style/global.css";
-import { generateRandomId } from "@/utils/generateRandomId";
-import { convertBase64ToFile } from "@/utils/base64ToFile";
 
 const heebo = Heebo({ subsets: ["latin"] });
 
@@ -86,10 +87,35 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     const wallet = await selector.wallet();
     setLoading(true);
 
+    const explanationPrediction = await runPrediction({
+      type: "llava-13b",
+      extra: {
+        image: photo,
+        prompt: "Describe this image. Be succint, keep it under 5 words.",
+      },
+    });
+
+    const newImage = await runPrediction({
+      type: "sdxl-polaroid",
+      extra: {
+        prompt: `Polaroid photo in the style of TOK, ${explanationPrediction.output.join("")}`,
+        image: photo,
+        negative_prompt:
+          "deformed, worst quality, text, watermark, logo, banner, extra digits, deformed fingers, deformed hands, cropped, jpeg artefacts, signature, username, error, sketch, duplicate, ugly, monochrome, horror, geometry, mutation, disgusting",
+      },
+    });
+
+    // const newImage = await runPrediction({
+    //   type: "sdxl",
+    //   extra: { prompt: explanationPrediction.output.join("") },
+    // });
+
+    const photo2 = await fetchImageAndConvertToBase64(newImage.output);
+
     const refObject = {
-      title: generateRandomId(10),
-      description: generateRandomId(10),
-      media: convertBase64ToFile(photo),
+      title: explanationPrediction.output.join("").slice(0, 10),
+      description: explanationPrediction.output.join(""),
+      media: convertBase64ToFile(photo2),
     };
 
     const uploadedData = await uploadReference(refObject);
